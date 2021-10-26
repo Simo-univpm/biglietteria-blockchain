@@ -1,0 +1,495 @@
+@charset "utf-8";
+
+/* Stili utilizzati nel front end dell'applicazione */
+
+/* Classi */
+
+:root{
+	--tema: #3b3f6d;
+}
+
+body, pre, video{
+    margin: 0;
+}
+
+ul{
+    margin: 20px;
+}
+
+input[type="date"]:not(.has-value):before{
+	color: rgba(169,169,169);
+	content: attr(placeholder);
+    margin-right: 40px;
+}
+
+input[type="file"]:not(.has-value):before{
+	color: rgba(169,169,169);
+	content: attr(placeholder);
+}
+
+body{
+	font-family: 'Signika', sans-serif;
+	color: #666 ;
+	height: 100%;
+	width: 100%;
+}
+
+img{
+	width: 100%;
+}
+
+nav{
+	position: fixed;
+	right: -192px;
+}
+
+.bar{
+	background-color: var(--tema);
+	height: 60px;
+	width: 100%;
+	position: fixed;
+	box-shadow: 0px 0px 3px 2px rgba(39, 12, 88, 0.493);
+}
+
+.logo{
+	float: left;
+	margin-left: 4%;
+	margin-top: 0.3%;
+	width: 130px;
+}
+
+.user{
+	float: right;
+	margin-top: -8px;
+	margin-right: 200px;
+	margin-left: 30px;
+	width: 32px;
+	cursor: pointer;
+}
+
+.sottomenu{
+	background-color: var(--tema);
+	width: 180px;
+	margin-top: 60px;
+	margin-left: 1240px;
+	display: none;
+	box-shadow: 0px 0px 1px 1px rgba(39, 12, 88, 0.493);
+}
+
+.opzione{
+	padding: 8px;
+	background-color: var(--tema);
+	font-size: 14px;
+	text-align: center;
+	cursor: pointer;
+	color: white;
+}
+
+.opzione:hover{
+	background-color: rgb(108, 97, 148);
+}
+	
+.categoria{
+	text-decoration: none;
+	padding-left: 24px;
+	color: #fff;
+}
+
+.categoria:hover{
+	color: #1d2480;
+}
+
+.lista_biglietti{
+	padding-top: 7%;
+	padding-bottom: 2%;
+	min-height: 700px;
+}
+
+.biglietto{
+	border: solid;
+	border-color: var(--tema);
+	background-color: rgba(255, 255, 255, 0.8);
+	border-width: 1px;
+	border-radius: 3px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	width: 800px;
+	margin-left: 22%;
+	text-align: center;
+	font-family: arial;
+	display: grid;
+	grid-template-columns: 25% 55% 20%;
+}
+
+.colonna_sinistra{
+	padding: 10px;
+}
+
+.colonna_centrale{
+	padding: 10px;
+	margin-left: 5%; 
+	margin-top: 2%;
+}
+
+.colonna_destra{
+	padding: 10px;
+	margin-top: 25%;
+}
+
+.titolo{
+	text-align: center;
+	color: black;
+	font-size: 180%;
+	margin: 0;
+}
+
+.dettagli_evento{
+	text-align: left;
+	margin: 0;
+}
+  
+.prezzo{
+	color: var(--tema);
+	font-weight: bold;
+	font-size: 22px;
+	text-align: center;
+	margin: 0;
+}
+  
+.pulsante{
+	border: solid;
+	padding: 10px;
+	color: white;
+	border-radius: 8px;
+	background-color: var(--tema);
+	cursor: pointer;
+	width: 100%;
+	font-size: 18px;
+}
+
+.pulsante:hover{
+	background-color: #2b2f5a;
+}
+
+
+.titolo_tabella{
+	color: var(--tema);
+	font-size: 32px;
+	font-family: 'Signika', sans-serif;
+	margin-left: 5%;
+	margin-top: 0%;
+	padding-top: 100px;
+}
+
+.tabella_vuota{
+	margin-left: 35%;
+	font-size: 140%;
+	font-family: 'Signika', sans-serif;
+	color: rgb(116, 91, 230);
+	width: 30%;
+	padding-top: 380px;
+	text-align: center;
+}
+
+.tabella{
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 3%;
+}
+
+.intestazione{
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: left;
+	background-color: var(--tema);
+	color: white;
+}
+
+.campo{
+	border: 1px solid #ddd;
+	padding: 8px;
+	background-color: white;
+	text-align: left;
+	cursor: pointer;
+	color: black;
+}
+
+.campo:hover{
+	background-color: rgb(237, 233, 252);
+}
+
+
+hr{
+	color: rgb(24,119,242);
+	width: 88%;
+	margin-left: 5%;
+	border-top: 1px solid #bbb;
+	border-radius: 5px;
+}
+
+.login{
+	background-color: rgb(255, 255, 255);
+	margin-top: 10%;
+	margin-left: 60%;
+	position: fixed;
+	width: 380px;
+	height: 380px;
+	border-radius: 10px
+}
+
+.login_body{
+	background-image: url("../immagini/login.png");
+	background-size: 1440px 800px;
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 0px;
+}
+
+.form_box{
+	width: 88%;
+	font-size: 100%;
+	padding-left: 5%;
+	line-height: 280%;
+	margin-left: 6%;
+	border: 1px solid #ccc;
+	border-radius: 10px
+}
+
+.form_button{
+	border: solid;
+	outline: 0;
+	padding: 12px;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	font-size: 100%;
+	border-radius: 10px;
+}
+
+.registrazione_body{
+	background-image: url("../immagini/registrazione.png");
+	background-size: 1440px 800px;
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 0px;
+}
+
+.new_event_body{
+	background-image: url("../immagini/new_event.png");
+	background-size: 1440px 800px;
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 0px;
+}
+
+.registrazione{
+	background-color: rgb(255, 255, 255);
+	margin-top: 18%;
+	margin-left: 22%;
+	position: fixed;
+	width: 800px;
+	height: 400px;
+	border-radius: 10px
+}
+
+.eventi_body{
+	height: 0px;
+}
+
+.biglietti_body{
+	height: 0px;
+}
+
+/* Id */
+
+#accedi{
+	background-color: rgb(24,119,242);
+	width: 90%; 
+	margin-left: 5%; 
+}
+
+#accedi:hover{
+	background-color: rgb(21, 91, 182);
+}
+
+#registrati{
+	background-color: rgb(66,183,42);
+	width: 50%;
+	margin-left: 25%;
+	margin-top: 30px;
+}
+
+#registrati:hover{
+	background-color: rgb(55, 150, 36);
+}
+
+#name{
+	width: 34%;
+	margin-top: 20px;
+	float: left;
+}
+
+#surname{
+	margin-top: 20px;
+	width: 50%
+}
+
+#email.form_box{
+	margin-top: 20px;
+}
+
+#email.form_box{
+	width: 56%;
+	margin-top: 20px;
+	float: left;
+}
+
+#tel{
+	width: 28%;
+	margin-top: 20px;
+}
+
+#dateOfBirth{
+	width: 50%;
+	margin-top: 20px;
+	float: left;
+}
+
+#gender{
+	color: rgb(153, 148, 148);
+	width: 240px;
+	margin-left: 490px;
+	margin-top: 40px;
+}
+
+#Donna{
+	margin-right: 10px;
+}
+
+#Uomo{
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
+#Altro{
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
+#password.form_box{
+	width: 42%;
+	margin-top: 20px;
+	float: left;
+}
+
+#password.form_box{
+	margin-top: 20px;
+}
+
+#conferma_password{
+	width: 42%;
+	margin-top: 20px;
+}
+
+#accedi.form_button{
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+#separatore{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#password_dimenticata{
+	color: rgb(24,119,242);
+	width: 80%;
+	font-size: 96%;
+	margin-left: 28%;
+}
+
+#nuovo_account.form_button{
+	background-color: rgb(66,183,42);
+	margin-left: 25%;
+}
+
+#nome{
+	margin-top: 20px;
+	width: 28%;
+	float: left;
+}
+
+#luogo{
+	margin-top: 20px;
+	width: 60%;
+	float: left;
+}
+
+#orario{
+	margin-top: 20px;
+	width: 140px;
+}
+
+#data{
+	margin-top: 20px;
+	width: 30%;
+}
+
+#immagine::-webkit-file-upload-button {
+	visibility: hidden;
+}
+
+#immagine::-webkit-user-select {
+	visibility: hidden;
+}
+
+#immagine {
+	margin-top: 20px;
+	width: 66%;
+	height: 48px;
+	background: linear-gradient(top, #f9f9f9, #e3e3e3);
+	cursor: pointer;
+	color: transparent;
+}
+
+#prezzo{
+	margin-top: 20px;
+	width: 16%;
+}
+
+#postiTotali{
+	margin-top: 20px;
+	width: 22%;
+}
+
+#Cinema{
+	margin-right: 10px;
+}
+
+#Concerti{
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
+#Musei{
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
+#Partite{
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
+#Teatro{
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
+#type{
+	color: rgb(153, 148, 148);
+	width: 442px;
+	margin-left: 22%;
+	margin-top: 40px;
+}

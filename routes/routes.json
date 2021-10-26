@@ -1,0 +1,32 @@
+[
+    {
+        "route":"/",
+        "name":"LogIn",
+        "modules":["widget","form"]
+    },
+    {
+        "route":"/sign-in",
+        "name":"SignIn",
+        "modules":["widget","form"]
+    },
+    {
+        "route":"/eventi",
+        "name":"Eventi",
+        "modules":["widget"]
+    },
+    {
+        "route":"/nuovo-evento",
+        "name":"NewEvent",
+        "modules":["/widget","form"]
+    },
+    {
+        "route":"/biglietti",
+        "name":"BigliettiEmessi",
+        "modules":["widget","tabelle"]
+    },
+    {
+        "route":"/utenti",
+        "name":"Utenti",
+        "modules":["widget","tabelle"]
+    }
+]
