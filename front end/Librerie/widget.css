@@ -1,0 +1,14 @@
+@charset "utf-8"; 
+
+:root{
+	--tema: #3b3f6d; /*Colore usato per il tema del sito*/
+}
+
+body, pre, video{
+    margin: 0; /*Imposta i margini*/
+}
+
+body{
+	background-size: 1440px 818px; /*Dimensione del body*/
+	background-repeat: no-repeat; /*Adatta lo sfondo del body alla pagina web*/
+}
