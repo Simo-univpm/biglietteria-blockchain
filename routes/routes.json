@@ -1,0 +1,32 @@
+[
+    {
+        "route":"/",
+        "name":"LogIn",
+        "modules":["widget","form","login"]
+    },
+    {
+        "route":"/sign-in",
+        "name":"SignIn",
+        "modules":["widget","form"]
+    },
+    {
+        "route":"/eventi",
+        "name":"Eventi",
+        "modules":["widget","event","bar"]
+    },
+    {
+        "route":"/nuovo-evento",
+        "name":"NewEvent",
+        "modules":["widget","form"]
+    },
+    {
+        "route":"/biglietti",
+        "name":"BigliettiEmessi",
+        "modules":["widget","table","bar"]
+    },
+    {
+        "route":"/utenti",
+        "name":"Utenti",
+        "modules":["widget","table","bar"]
+    }
+]
