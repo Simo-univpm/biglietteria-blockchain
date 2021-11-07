@@ -1,4 +1,7 @@
 // imported packages
+// Main Configuration JS Command, used to build the environment and to
+// connect to the online MongoDB cluster
+
 const express = require('express');
 const app = express();
 
@@ -25,11 +28,16 @@ const contractsRoute = require('./routes/contracts');
 const pagesRoute = require('./routes/pages');
 
 // route middlewares
-// endpoints -> frontend manipola risorse messe a disposizione con get e post volendo anche delete 
+/*
+endpoints -> frontend manipola risorse messe a disposizione con get e post volendo anche delete 
+app.js (il presente file) è il "main" della web-app, e genera le seguenti quattro rotte
+*/
+//localhost:8080/seguito dalle rotte sottostanti. Accedendo a localhost:8080/ si va alla home
 app.use('/api/users', usersRoute);
 app.use('/api/events', eventsRoute);
 app.use('/api/contracts', contractsRoute);
-app.use('', pagesRoute);
+app.use('', pagesRoute);//crea delle pagine html che invia al client in seguito all'elaborazione eseguita in JS(vedi linea 25)
+//la creazione viene fatta dal file pages.js in /routes/pages.js
 
 app.use(express.static('./front end'));
 
