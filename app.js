@@ -32,7 +32,9 @@ const pagesRoute = require('./routes/pages');
 endpoints -> frontend manipola risorse messe a disposizione con get e post volendo anche delete 
 app.js (il presente file) è il "main" della web-app, e genera le seguenti quattro rotte
 */
-//localhost:8080/seguito dalle rotte sottostanti. Accedendo a localhost:8080/ si va alla home
+//localhost:8080/seguito dalle rotte sottostanti, richiama i file (aka crea un mapping ai file)
+//di cui alle linee 25-28.
+//Accedendo a localhost:8080/ si va alla home
 app.use('/api/users', usersRoute);
 app.use('/api/events', eventsRoute);
 app.use('/api/contracts', contractsRoute);
