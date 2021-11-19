@@ -17,6 +17,35 @@ app.use(cors());
 
 // =============================================================================
 
+//!!!! DA FARE
+
+//!!!NOTA!!! Bisogna creare il modello per i biglietti nel database.
+//!!!NOTA!!! Bisogna creare una funzione per filtrare gli eventi in base all'organizzatore
+//!!!NOTA!!! Aggiungere un campo all'evento per dire se i biglietti sono in vendita o meno????
+//!!!NOTA!!! Aggiungere un campo all'evento per gli artisti
+//!!!NOTA!!! Nel database memorizziamo l'immagine dell'evento o il percorso????
+//!!!NOTA!!! Va aggiunto il protocollo https!!! (Basta aggiungere una libreria)
+//!!!NOTA!!! L'autenticazione a più fattori la mettiamo????
+//!!!NOTA!!! Negli utenti va aggiunto un campo per l'indirizzo dell'account su blockchain
+//!!!NOTA!!! Negli eventi va aggiunto un campo per l'indirizzo del contratto associato
+//!!!NOTA!!! Quali dati usiamo per generari il QR code del biglietto???
+//!!!NOTA!!! Implementare sigillo fiscale
+//!!!NOTA!!! Aggiungere api per modificare un evento già esistente
+//!!!NOTA!!! Aggiungere api per modificare un utente già esistente
+//!!!NOTA!!! Implementare contratto in solidity (avevamo già iniziato a fare qualcosa)
+//!!!NOTA!!! Bisogna salvare le ricevute di pagamento nel database
+//!!!NOTA!!! Gestire l'invio di una mail per recuperare la password??????
+//!!!NOTA!!! Inviare una mail quando viene emesso il biglietto?????
+//!!!NOTA!!! Fare una pagina web in cui ci sono tutti i biglietti acquistati da un utente
+//!!!NOTA!!! Come si creano gli account su quorum?? Come gestiamo le chiavi private??
+//!!!NOTA!!! Sistemare area riservata
+
+
+//!!!! FATTO
+//!!!NOTA!!! L'autenticazione adesso funziona
+//!!!NOTA!!! Il controllo dei privilegi funziona
+//!!!NOTA!!! Le chiamate alla blockchain funzionano
+//!!!NOTA!!! Aggiunto paypal come servizio di pagamento (è molto semplice da usare) (lo lasciamo o mettiamo altro????)
 
 
 console.log('\n' + '----- | TICKETTWO\'S SERVER | -----' + '\n');

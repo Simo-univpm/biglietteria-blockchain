@@ -7,6 +7,7 @@ const eventController = new EventController();
 const fs = require('fs')
 const path = require('path')
 
+
 // (GET) ottieni tutti gli eventi
 router.get('/', async (req, res) => {
 

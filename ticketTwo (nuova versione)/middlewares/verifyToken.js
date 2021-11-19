@@ -16,24 +16,21 @@ const getToken = require('./getToken');
 
 function verifyToken(req, res, next){
 
-    const token = getToken(req)
+    const token = getToken(req) //Ottiene il token associato alla richiesta
     
     if( ! token){
-        res.status(401)
-        res.redirect("/login")
+        res.status(401) //Imposta lo stato della richiesta a 401 Unauthorized
+        res.redirect("/login")  //Reindirizza il client alla pagina di login
         return;
     }
 
     try{
 
-        // verifica validità token
-        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-        req.user = verified;
-
+        req.user = jwt.verify(token, process.env.TOKEN_SECRET); //Verifica validità token e ottiene l'utente associato
         next();
 
     }catch(err){
-        res.status(400).send('ERROR: Invalid token' + err);
+        res.status(400).send('ERROR: Invalid token' + err); //Invia un messaggio d'errore al client
     }
 
 }

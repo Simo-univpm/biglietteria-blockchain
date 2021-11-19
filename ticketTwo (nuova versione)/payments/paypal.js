@@ -1,21 +1,31 @@
 
 const paypal = require('paypal-rest-sdk');
 
+
+/*La classe Paypal permette di gestire i pagamenti dei biglietti appoggiandosi ad un sito
+di pagamento esterno (paypal). Paypal fornisce una sandbox che permette di testare le 
+transazioni per i pagamenti durante la fase di sviluppo del sito web. */
+
 class Paypal {
 
     constructor()
     {
         paypal.configure({
-            'mode': 'sandbox', //sandbox or live
-            'client_id': 'AV-HTD4fGeCdtcvfcRWN3bBZr_E7U1sVd-RahZr6Au_vaBhdMh_MSXoSR7fAuJ1-FiE7u6OQgx3VUHMC',
-            'client_secret': 'EF4nko-x3ld5qiwzRe0Gkf5OHU0-qDa8lX4a5KH4fhnCIEWtERjmbWcLqCXAf8WYVwhXx7eevW_EUb3z'
+            'mode': 'sandbox', //Per il progetto viene impostata la modalità sandbox (le transazioni paypal non sono reali!!!)
+            'client_id': 'AV-HTD4fGeCdtcvfcRWN3bBZr_E7U1sVd-RahZr6Au_vaBhdMh_MSXoSR7fAuJ1-FiE7u6OQgx3VUHMC',    //ID dell'account sviluppatore paypal
+            'client_secret': 'EF4nko-x3ld5qiwzRe0Gkf5OHU0-qDa8lX4a5KH4fhnCIEWtERjmbWcLqCXAf8WYVwhXx7eevW_EUb3z' //Segerto associato all'account
         });
  
     }
 
+
+    /* La funzione effettua la richiesta di pagamento per un biglietto da parte di un cliente.
+    La funzione richiede come parametri: la risposta HTTP, il nome dell'evento per cui si
+    vogliono acquistare i biglietti, il prezzo di ciascun biglietto e il numero di biglietti.*/
+
     richiestaPagamento(res,nome_evento,prezzo,numero_biglietti){
         
-        const amount = {"currency": "EUR", "total": prezzo*numero_biglietti}
+        const amount = {"currency": "EUR", "total": prezzo*numero_biglietti}    //Ammontare del pagamento
 
         const create_payment_json = {
             "intent": "sale",
@@ -26,8 +36,8 @@ class Paypal {
                 "payment_method": "paypal"
             },
             "redirect_urls": {
-                "return_url": "http://localhost:8080/api/pay/success",
-                "cancel_url": "http://localhost:8080/api/pay/cancel"
+                "return_url": "http://localhost:8080/api/pay/success",  //URL cui si viene reindirizzati se la richiesta ha successo
+                "cancel_url": "http://localhost:8080/api/pay/cancel"    //URL cui si viene reindirizzati se la richiesta fallisce
             },
             "transactions": [{
                 "item_list": {
@@ -56,6 +66,10 @@ class Paypal {
         });
     }
 
+    /* La funzione esegue il pagamento per un biglietto da parte di un cliente.
+    La funzione richiede come parametri: la risposta HTTP, l'ID del cliente che
+    deve pagare e l'ID del pagamento. */
+
     eseguiPagamento(res, payerId, paymentId){
 
         const execute_payment_json = {
@@ -73,6 +87,7 @@ class Paypal {
     }
 
 }
+
 
 
 module.exports = Paypal;
