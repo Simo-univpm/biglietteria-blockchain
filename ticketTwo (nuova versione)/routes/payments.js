@@ -33,11 +33,14 @@ router.get('/', verifyToken, (req, res, next) => checkPrivileges(req, res, [0], 
   var result = await eventController.getEvent(req.query.id);
   const evento = result[1]
 
+  const disp_biglietti = await biglietteria.controllaDispBiglietti()
+
+  if (disp_biglietti)
+    paypal.richiestaPagamento(res,evento.nome,evento.prezzo,req.query.numero_biglietti)
+
   //!!!!!NOTA!!!!!!
   //Aggiungere chiamata allo smart contract per controllare la disponibilità dei biglietti
   //Se i biglietti ci sono richiedi il pagamento
-
-  paypal.richiestaPagamento(res,evento.nome,evento.prezzo,req.query.numero_biglietti)
   
 });
 
@@ -46,6 +49,10 @@ router.get('/', verifyToken, (req, res, next) => checkPrivileges(req, res, [0], 
 router.get('/success', verifyToken, (req, res, next) => checkPrivileges(req, res, [0], next), async (req, res) => {
 
   paypal.eseguiPagamento(res,req.query.PayerID,req.query.paymentId)
+
+  const biglietto = await biglietteria.emettiBiglietti()
+
+  res.send(biglietto)
 
   //!!!!!NOTA!!!!!!
   //Se il pagamento va a buon fine bisogna dare i biglietti al cliente
@@ -56,6 +63,13 @@ router.get('/success', verifyToken, (req, res, next) => checkPrivileges(req, res
 //Il client viene reindirizzato a questa rotta quando la sua richiesta di pagamento fallisce
 
 router.get('/cancel', verifyToken, (req, res, next) => checkPrivileges(req, res, [0], next), async (req, res) => res.send('Cancelled'));
+
+router.get('/prova', async (req, res) => {
+  const prova = await biglietteria.emettiBiglietti()
+  const result = await biglietteria.invalidaBiglietto(prova.replace("data:image/png;base64",""))
+  res.send(result)
+});
+
 
 
 module.exports = router;

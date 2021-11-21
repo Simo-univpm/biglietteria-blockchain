@@ -24,9 +24,17 @@ class HTMLpage
         const descrizione = "Prenota i biglietti per i tuoi eventi preferiti. Su ticketTwo trovi concerti, sport, cinema e molto altro."    //Descrizione del sito web
         this.head = new Head(titolo,descrizione)    //Crea un oggetto di tipo Head (intestazione della pagina web)
         this.document.addChild(this.head)   //Aggiunge l'intestazione alla pagina web
-        const script = new Widget("script") //Crea un tag di tipo script
-        script.setAttribute("src","client.js")  //Importa le funzioni definite nel file "client.js" all'interno del tag di tipo script (sono le funzioni javascript che vengono eseguite lato client)
-        this.head.addChild(script)  //Aggiunge il tag all'intestazione della pagina web
+
+        const librerie = ["web3/dist/web3.js","https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js","client.js"]
+        
+        //!!!NOTA!!! Il file "client.js" contiene le funzioni javascript che vengono eseguite lato client
+
+        for(let i=0; i<librerie.length; i+=1){
+            const script = new Widget("script") //Crea un tag di tipo script
+            script.setAttribute("src",librerie[i])  //Importa il modulo all'interno del tag di tipo script
+            this.head.addChild(script)  //Aggiunge il tag all'intestazione della pagina web
+        }   
+        
         this.body = new Body()  //Crea un oggetto di tipo body (corpo della pagina web)
         this.document.addChild(this.body)   //Aggiunge il corpo alla pagina web
 

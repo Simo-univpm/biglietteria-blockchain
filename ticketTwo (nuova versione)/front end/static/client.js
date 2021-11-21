@@ -184,10 +184,95 @@ async function buyTicket() {
         window.location.href = "/api/pay?id="+eventID+"&numero_biglietti="+numero_biglietti //Effettua la richiesta GET al server
 }
 
+
+
+
+
+
+///DA SISTEMARE!!!!
+
 function showEventManagerField() {
 
     if (document.getElementById('privileges').value=='Event manager') 
         document.getElementById('event_manager_field').style.setProperty("display","block")
     else
         document.getElementById('event_manager_field').style.setProperty("display","none")
+}
+
+function modificaProfilo() {
+
+    const button = document.getElementById("modifica_profilo")
+    button.value = "Salva modifiche"
+    button.onclick = salvaProfilo
+
+    const dati_profilo = document.getElementById("dati_profilo")
+    const campi = dati_profilo.children
+    for (let i=0;i<campi.length; i+=1){
+        if (campi[i].tagName == "P"){
+            text_box = document.createElement("input")
+            text_box.value = campi[i].textContent
+            text_box.style.setProperty("font-size","100%") //Dimenzione del testo del campo
+            text_box.style.setProperty("height","36px") //Altezza del campo
+            text_box.style.setProperty("width","99%") //Lunghezza del campo
+            text_box.style.setProperty("padding-left","5%") //Spazio a sinistra del campo
+            text_box.style.setProperty("margin-top","10px") //Distanza del campo dal bordo in alto
+            text_box.style.setProperty("margin-left","0.5%") //Distanza del campo dal bordo sinistro
+            text_box.style.setProperty("border","1px solid #ccc") //Tipo di bordo del campo
+            text_box.style.setProperty("border-radius","10px") //Raggio del bordo del campo (rende il campo arrotondato)
+            campi[i].after(text_box)
+            campi[i].remove()
+        }
+
+    }
+
+}
+
+function salvaProfilo() {
+
+    const button = document.getElementById("modifica_profilo")
+    button.value = "Modifica profilo"
+    button.onclick = modificaProfilo
+
+    const dati_profilo = document.getElementById("dati_profilo")
+    const campi = dati_profilo.children
+    for (let i=0;i<campi.length; i+=1){
+        console.log(campi[i].tagName)
+        if (campi[i].tagName == "INPUT"){
+            valore = document.createElement("p")
+            valore.textContent = campi[i].value
+            valore.style.setProperty("margin-top","22px")
+            campi[i].after(valore)
+            campi[i].remove()
+        }
+    }
+
+    //!!!!!NOTA!!!! Aggiungi api per modificare i dati sul db
+
+}
+
+async function controllaDispBiglietti(nome_evento,numero_biglietti)
+{
+    //Fare una chiamata allo smart contract associato al giusto evento per vedere se ci sono biglietti disponibili
+    //Restituire un booleano (true se i biglietti sono disponibili, false altrimenti)
+    return true
+}
+
+async function ottieniBiglietti(nome_evento)
+{
+    //Fare una chiamata allo smart contract associato al giusto evento per emettere i biglietti
+    //Apporre il sigillo fiscale
+    //Restituire il biglietto
+
+    const qrcode = await QRCode.toDataURL("biglietto");
+    return qrcode
+}
+
+async function invalidaBiglietto(qrcode)
+{
+    //Decifrare il codice QR
+    //Controllare se il sigillo è valido
+    //Fare una chiamata allo smart contract associato al giusto evento per invalidare il biglietto
+    //Restituire un booleano (true se l'invalidazione ha successo)
+
+    return true
 }

@@ -205,11 +205,11 @@ router.get('/grant-privileges', verifyToken, (req, res, next) => checkPrivileges
   form.setAttribute("oninput","showEventManagerField()")
   form.setProperty("margin-top","120px")
 
-  const logo = new Widget("img")
-  logo.setAttribute("src","GrantPrivileges.png")
-  logo.setProperty("width","50%")
-  logo.setProperty("margin-bottom","20px")
-  form.addChild(logo)
+  const logo = new Widget("img")  //Crea un nuovo tag di tipo img
+  logo.setAttribute("src","GrantPrivileges.png")  //Imposta la sorgente dell'immagine
+  logo.setProperty("width","50%") //Lunghezza dell'immagine
+  logo.setProperty("margin-bottom","20px")  //Margini dal basso
+  form.addChild(logo) //Aggiunge il logo al form
 
   form.addRadioButtons("privileges",["Event manager","Staff biglietteria","Annullatore"]).setProperty("margin-left","80px")
   const event_manager_field = form.addField("event_manager_field","Organizzatore")
@@ -251,10 +251,10 @@ router.get('/acquista', verifyToken, (req, res, next) => checkPrivileges(req, re
   form.setProperty("width","800px") //Lunghezza
   event_page.addChild(form) //Aggiunge il form alla pagina web
 
-  const logo = new Widget("img")
-  logo.setAttribute("src","BuyTicket.png")
-  logo.setProperty("width","50%")
-  form.addChild(logo)
+  const logo = new Widget("img")  //Crea un nuovo tag di tipo img
+  logo.setAttribute("src","BuyTicket.png")  //Imposta la sorgente dell'immagine
+  logo.setProperty("width","50%") //Lunghezza dell'immagine
+  form.addChild(logo) //Aggiunge il logo al form
 
   //Riquadro con i dati dell'evento
 
@@ -298,8 +298,6 @@ router.get('/acquista', verifyToken, (req, res, next) => checkPrivileges(req, re
 });
 
 
-//!!!NOTA!!! Queste sotto di rotte vanno sistemate....
-
 
 // Mappa la rotta della pagina web in cui sono memorizzati i dati del profilo di un utente
 
@@ -309,31 +307,82 @@ router.get('/area-riservata', verifyToken, (req, res, next) => checkPrivileges(r
   const area_riservata = new HTMLpage(req.user) //Crea una nuova pagina HTML (area riservata)
   const form = new Form()
   form.setProperty("margin-top","60px")
-  form.setProperty("background-color","var(--tema)")
   area_riservata.addChild(form)
-  const valori = result[1]
-  console.log(valori)
-  const campi = Object.keys(valori.toJSON())
+
+  const logo = new Widget("img")  //Crea un nuovo tag di tipo img
+  logo.setAttribute("src","Profilo.png")  //Imposta la sorgente dell'immagine
+  logo.setProperty("width","50%") //Lunghezza dell'immagine
+  logo.setProperty("margin-bottom","20px")  //Margini dal basso
+  form.addChild(logo) //Aggiunge il logo al form
+
+  const dati_profilo = new Widget("div")  //Crea un nuovo tag di tipo div
+  dati_profilo.setAttribute("id","dati_profilo") 
+  dati_profilo.setProperty("display","grid") //I figli di questa classe sono disposti a griglia
+  dati_profilo.setProperty("grid-template-columns","26% 74%") //Lunghezze delle colonne della griglia
+  dati_profilo.setProperty("margin-bottom","20px")
+  form.addChild(dati_profilo) //Aggiunge i dati del profilo al form
+
+  const privileges = {0: "Cliente", 1: "Organizzatore eventi", 2: "Staff biglietteria", 3: "Annullatore"}
+  const valori = {"Nome": result[1].name, "Cognome": result[1].surname,"Data di nascita": result[1].dateOfBirth, "Genere": result[1].gender,"Telefono": result[1].tel,"E-mail": result[1].email,"Privilegi": privileges[result[1].privileges]}
+  const campi = Object.keys(valori)
   
   for (let i=0; i<campi.length; i++){
-    const data = new Widget("H3",campi[i]+": "+valori[campi[i]])
-    data.setProperty("color","white")
-    form.addChild(data)
+    const campo = new Widget("h3",campi[i]+": ")
+    campo.setProperty("color","rgba(138,146,178,255)")
+    dati_profilo.addChild(campo)
+    const valore = new Widget("p",valori[campi[i]])
+    valore.setProperty("margin-top","22px")
+    dati_profilo.addChild(valore)
   }
+
+  const button = form.addButton("'Modifica profilo'","modificaProfilo(this)")
+  button.setAttribute("id","modifica_profilo")
+  button.setProperty("background-color","rgba(138,146,178,255)")
   
   res.status = result[0]
   area_riservata.send(res) //Aggiunge la pagina web alla risposta HTTP
 
 });
 
-// (GET) biglietti
+
+//!!!NOTA!!! Queste sotto di rotte vanno sistemate....
+
+
+// Mappa la rotta della pagina web per scannerizzare i QRcode
+
+router.get('/annulla-biglietti', verifyToken, (req, res, next) => checkPrivileges(req, res, [3], next),async (req, res) => {
+
+  const invalid_ticket_page = new HTMLpage(req.user) //Crea una nuova pagina HTML (area riservata)
+  const form = new Form()
+  form.setProperty("margin-top","60px")
+  invalid_ticket_page.addChild(form)
+
+  const logo = new Widget("img")  //Crea un nuovo tag di tipo img
+  logo.setAttribute("src","Annulla-biglietti.png")  //Imposta la sorgente dell'immagine
+  logo.setProperty("width","50%") //Lunghezza dell'immagine
+  logo.setProperty("margin-bottom","20px")  //Margini dal basso
+  form.addChild(logo) //Aggiunge il logo al form
+
+  invalid_ticket_page.send(res) //Aggiunge la pagina web alla risposta HTTP
+
+});
+
+
 router.get('/biglietti', async (req, res) => {
     
+  /*
     const ticket_page = new HTMLpage()  //Crea una nuova pagina HTML
     let data = biglietti[req.query.id]
     let titolo = "Biglietti emessi per l'evento "+req.query.id
     ticket_page.addChild(new Table(data,titolo))
-    ticket_page.send(res) //Aggiunge la pagina web alla risposta HTTP
+    ticket_page.send(res) //Aggiunge la pagina web alla risposta HTTP */
+    res.send("!!!NOTA!!!! Inserire la pagina per vedere la lista dei piglietti emessi") 
+});
+
+
+router.get('/ingressi', async (req, res) => {
+    
+    res.send("!!!NOTA!!!! Inserire la pagina per vedere la lista degli ingressi") 
 });
 
 

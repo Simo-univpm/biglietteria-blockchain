@@ -49,22 +49,22 @@ class ListaEventi extends Widget{
                 //Gestione biglietti andrebbe mostrato solo se i biglietti sono in vendita?????
                 //Gestione ingressi andrebbe mostrato solo una volta iniziato l'evento???????
 
-                evento.addButton("Gestione biglietti","'/pagamento'")
-                evento.addButton("Gestione ingressi","'/pagamento'")
+                evento.addButton("Gestione biglietti","'/biglietti'")
+                evento.addButton("Gestione ingressi","'/ingressi'")
                 evento.addData(["luogo","data","posti_disponibili","orario","eventCreationDate","eventCreationTime","prezzo"])  //Specifica i campi dell'evento da mostrare
             }
                 
             else if (privilegi==2){
                 evento.addButton("Apri vendite","'/api/pay/apri-vendite?id="+eventi[i].eventID+"'") //Aggiunge il pulsante per aprire le vendite dei biglietti
-                evento.addButton("Gestione biglietti","'/pagamento'")
-                evento.addButton("Gestione ingressi","'/pagamento'")
+                evento.addButton("Gestione biglietti","'/biglietti'")
+                evento.addButton("Gestione ingressi","'/ingressi'")
                 evento.addData(["luogo","data","posti_disponibili","orario","organizzatore","eventCreationDate","eventCreationTime","prezzo"])  //Specifica i campi dell'evento da mostrare
             }
             
-            else if (privilegi==2){
-                evento.addButton("Invalida biglietti","'/pagamento'")   //Aggiunge il pulsante per modificare un evento
-                evento.addButton("Gestione biglietti","'/pagamento'")
-                evento.addButton("Gestione ingressi","'/pagamento'")
+            else if (privilegi==3){
+                evento.addButton("Invalida biglietti","'/annulla-biglietti'")   //Aggiunge il pulsante per modificare un evento
+                evento.addButton("Gestione biglietti","'/biglietti'")
+                evento.addButton("Gestione ingressi","'/ingressi'")
                 evento.addData(["luogo","data","posti_disponibili","orario","organizzatore","eventCreationDate","eventCreationTime","prezzo"])  //Specifica i campi dell'evento da mostrare
             }
 
