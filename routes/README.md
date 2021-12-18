@@ -1,7 +1,6 @@
-# biglietteria-blockchain
-Progetto di sowftware cybersecuirty che richiede l'implementazione di una biglietteria online (simile a ticket one) ma basata su blockchain.
-In ticketTwo (nuova versione) nel modulo app.js tra i commenti ho inserito una lista delle cose da fare.
+# routes
 
-# !!!!!!!!!!Credenziali paypal!!!!!!!!!!
-username: cliente.tickettwo@gmail.com
-password: ticketTwo!
+In questa directory sono presenti tutte lo rotte del sito web.
+
+- La cartella api contiene tutte le rotte per accedere, modificare ed eliminare le risorse.
+- La cartella web pages contiene tutte le rotte delle pagine web del sito.
