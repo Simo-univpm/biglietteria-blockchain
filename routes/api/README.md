@@ -1,4 +1,4 @@
-# /routes/api
+# routes/api
 
 In questa directory sono presenti tutte lo rotte per creare, modificare e cancellare risorse.
 
