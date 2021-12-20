@@ -1,6 +1,6 @@
 # ticketTwo
 
-![logo](front end/images/form_logo.png)
+![logo](https://github.com/Simo-univpm/biglietteria-blockchain/blob/main/ticketTwo/front%20end/images/form_logo.png)
 
 Questa directory è il cuore dell'applicazione web. Contiene i moduli software individuati durante la fase di progettazione attraverso i diagrammi i*.
 
