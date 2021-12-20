@@ -28,7 +28,6 @@ npm i //Installa i pacchetti node JS necessari per il funzionamento dell'app
 ```
 
 Per evitare problemi si consiglia di utilizzare l'ultima versione di Node.js.
-Seguire il manuale di installazione e configurazione presente nella relazione del progetto.
 
 Per avviare il server bisogna lanciare il comando:
 
@@ -36,3 +35,5 @@ Per avviare il server bisogna lanciare il comando:
 npm start //Avvia il server dell'applicazione web
 ```
 Di default il server si mette in ascolto sulla porta 8080.
+
+Per maggiori informazioni seguire il manuale di installazione, configurazione e utilizzo presente nella relazione del progetto.
