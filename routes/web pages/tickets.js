@@ -45,7 +45,7 @@ router.get('/ricevute', verifyToken,(req, res, next) => checkPrivileges(req, res
 
 // Mappa la rotta della pagina web per scannerizzare i QRcode
 
-router.get('/annulla-biglietti', verifyToken, (req, res, next) => checkPrivileges(req, res, ["Annullatore"], next),async (req, res) => new TicketTwo.Annullatore.InvalidaBiglietti().send(res,result[0]));
+router.get('/annulla-biglietti', verifyToken, (req, res, next) => checkPrivileges(req, res, ["Annullatore"], next),async (req, res) => new TicketTwo.Annullatore.InvalidaBiglietti().send(res));
 
 
 // (GET) download biglietto

@@ -16,6 +16,14 @@ router.get('/profilo', verifyToken, (req, res, next) => checkPrivileges(req, res
 });
 
 
+// Mappa la rotta della pagina web in cui modificare i dati del profilo di un utente
+
+router.get('/modifica-profilo', verifyToken, (req, res, next) => checkPrivileges(req, res, ["Cliente","Organizzatore eventi","Staff biglietteria","Annullatore"], next),async (req, res) => {
+
+  userController.getUser(req.headers.user.userID).then(result => eval('new TicketTwo.'+req.headers.user.privileges.replace(" ","_")+'.ModificaProfilo(req.headers.user.email,result[1]).send(res,result[0])'))
+});
+
+
 // Mappa la rotta della pagina per creare un nuovo account
 
 router.get('/sign-in', async (req, res) => new TicketTwo.UtenteOspite.Signin().send(res))
@@ -33,7 +41,7 @@ router.get('/modifica-password', verifyToken,(req, res, next) => checkPrivileges
 
 // Mappa la rotta della pagina che permette di modificare i privilegi degli utenti
 
-router.get('/grant-privileges', verifyToken, (req, res, next) => checkPrivileges(req, res, ["Staff biglietteria"], next), async (req, res) => new TicketTwo.Staff_biglietteria.ConcediPrivilegi(req.headers.user.email).send(res))
+router.get('/grant-privileges', verifyToken, (req, res, next) => checkPrivileges(req, res, ["Staff biglietteria"], next), verifyOTP, async (req, res) => new TicketTwo.Staff_biglietteria.ConcediPrivilegi(req.headers.user.email).send(res))
 
 
 // Mappa la rotta della pagina in cui vengono visualizzati tutti gli utenti registrati al sito web
