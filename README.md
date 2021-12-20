@@ -1,7 +1,7 @@
 
 
 <img
-src=“https://github.com/Simo-univpm/biglietteria-blockchain/blob/main/ticketTwo/front%20end/images/form_logo.png”
+src=“y.png”
 raw=true
 alt=“Subject Pronouns”
 style=“margin-right: 10px;”
