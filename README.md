@@ -1,4 +1,4 @@
-<img width="964" alt="java 8 and prio java 8  array review example" src="https://github.com/Simo-univpm/biglietteria-blockchain/blob/main/ticketTwo/front%20end/images/form_logo.png">
+<img width="464" alt="java 8 and prio java 8  array review example" src="https://github.com/Simo-univpm/biglietteria-blockchain/blob/main/ticketTwo/front%20end/images/form_logo.png">
 
 
 
