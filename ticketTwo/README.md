@@ -1,5 +1,7 @@
 # ticketTwo
 
+!biglietteria-blockchain-main/ticketTwo/front end/images/form_logo.png
+
 Questa directory è il cuore dell'applicazione web. Contiene i moduli software individuati durante la fase di progettazione attraverso i diagrammi i*.
 
 - La cartella front end contiene l'implementazione dei moduli software che si occupano di interagire con gli utenti dell'applicazione web:
