@@ -1,6 +1,6 @@
 # ticketTwo
 
-Questa directory è il cuore dell'applicazione web. Contiene i moduli software individuati durante la fase di progettazione attraversi i diagrammi i*.
+Questa directory è il cuore dell'applicazione web. Contiene i moduli software individuati durante la fase di progettazione attraverso i diagrammi i*.
 
 - La cartella front end contiene l'implementazione dei moduli software che si occupano di interagire con gli utenti dell'applicazione web:
   - Modulo amministrazione evento,
