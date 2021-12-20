@@ -1,6 +1,6 @@
 # ticketTwo
 
-![logo](biglietteria-blockchain-main/ticketTwo/front end/images/form_logo.png)
+![logo](ticketTwo/front end/images/form_logo.png)
 
 Questa directory è il cuore dell'applicazione web. Contiene i moduli software individuati durante la fase di progettazione attraverso i diagrammi i*.
 
