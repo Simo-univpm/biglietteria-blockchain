@@ -8,5 +8,5 @@ module.exports = {
     Organizzatore_eventi: require("./web pages/Modulo amministrazione evento"),
     Immagini: express.static(__dirname+"/images"),
     Scripts: express.static(__dirname+"/scripts"),
-    UtenteOspite: require("./web pages/utente ospite")
+    UtenteOspite: require("./web pages/Modulo utente ospite")
 }
