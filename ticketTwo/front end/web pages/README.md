@@ -1,6 +1,5 @@
-# routes
+# ticketTwo/front end/web pages
 
-In questa directory sono presenti tutte lo rotte del sito web.
+In questa directory sono presenti i moduli software che permettono all'applicazione web di interfacciarsi con gli utenti. Questi moduli contengono l'implementazione delle pagine web che vengono visitate dai client del sito web.
 
-- La cartella api contiene tutte le rotte per accedere, modificare ed eliminare le risorse.
-- La cartella web pages contiene tutte le rotte delle pagine web del sito.
+- La cartella **cliente** contiene il codice che permette di interfacciarsi con
