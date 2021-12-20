@@ -1,6 +1,10 @@
-# routes
+# ticketTwo
 
-In questa directory sono presenti tutte lo rotte del sito web.
+Questa directory è il cuore dell'applicazione web. Contiene i moduli software individuati durante la fase di progettazione attraversi i diagrammi i*.
 
-- La cartella api contiene tutte le rotte per accedere, modificare ed eliminare le risorse.
-- La cartella web pages contiene tutte le rotte delle pagine web del sito.
+- La cartella front end contiene l'implementazione dei moduli software che si occupano di interagire con gli utenti dell'applicazione web:
+  - Modulo amministrazione evento,
+  - Modulo gestione biglietti,
+  - Modulo vendite biglietti,
+  - Modulo annullatore biglietti.
+- La cartella System contiene il modulo software principale che svolge la funzione di server e si occupa di processare le richieste ricevute dagli utenti.
