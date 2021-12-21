@@ -32,6 +32,18 @@ class AuthController {
 
     constructor(){}
 
+
+
+    /*Questa funzione controlla le credenziali di accesso inserite
+    da un utente. Se le credenziali sono corrette l'utente viene
+    autenticato e gli viene assegnato un token di autenticazione.
+
+    La funzione richiede come parametro un JSON contenente le credenziali dell'utente.
+
+    La funzione restituisce lo stato della richiesta.
+    Se l'autenticazione ha successo viene restituito anche il token.*/
+
+
     async login(loginData){
 
         try{
@@ -63,6 +75,10 @@ class AuthController {
                 
             }, process.env.TOKEN_SECRET);
 
+
+            // Aggiunge un record alla lista degli accessi nel database
+            // Il record contiene mail di chi effettua l'accesso, data e ora dell'accesso
+
             create(Access,{
 
                 Mail: loginData.Mail,
@@ -78,6 +94,19 @@ class AuthController {
 
     }
     
+
+
+    /*Questa funzione registra i dati d'iscrizione di un nuovo utente all'interno del
+    database.
+
+    Prima si controlla che la mail inserita dall'utente non sia già registrata al sito,
+    poi si genera un wallet da assegnare all'account e si memorizzano i dati sul database.
+
+    La funzione richiede come parametro un JSON contenente i dati d'iscrizione dell'utente.
+
+    La funzione restituisce lo stato della richiesta.
+    Se l'autenticazione ha successo viene restituito anche il token.*/
+
     
     async register(registerData){
     
@@ -86,15 +115,21 @@ class AuthController {
         const emailExists = await User.findOne({Mail: registerData.Mail});
         if(emailExists) return [400, "L'email " + registerData.Mail + " è già stata utilizzata"];
     
+
         // PASSWORD HASHING: tramite hash + salt
+
         const salt = await bcrypt.genSalt(10);
         const hashedPassword  = await bcrypt.hash(registerData.Password, salt); // hashing pw with salt
+
+
+        // Generazione del wallet da assegnare all'utente
 
         const wallet = await createWallet()
         if (!wallet) return [500, "Il server non è connesso alla blockchain"]
 
 
         // CREAZIONE NUOVO UTENTE:
+
         const result = await create(User,{
 
             Nome: registerData.Nome,
@@ -114,6 +149,10 @@ class AuthController {
 
         if (result[0] != 200) return result
 
+
+        // Invio si una mail per informare che l'iscrizione è avvenuta con successo
+        // La password del wallet è allegata alla mail
+
         const mail = "Gentile utente, la sua registrazione a ticketTwo è avvenuta con successo. "+
                      "In allegato alla mail trova la password del suo wallet sulla nostra blockchain.\n\n"+
                      "Password wallet: "+wallet.password+"\n\n"+
@@ -124,6 +163,17 @@ class AuthController {
         return result
 
     }
+
+
+    
+    /*Questa funzione genera un codice OTP che viene inviata all'utente tramite mail.
+
+    La funzione richiede come parametri:
+        - l'id associato all'utente,
+        - la mail dell'utente.
+
+    La funzione restituisce lo stato della richiesta.*/
+
 
     async generateOTP(userID,email){
 
@@ -150,9 +200,23 @@ class AuthController {
     }
 
 
+
+    /*Questa funzione verifica la correttezza del codice OTP inserito dall'utente.
+    Se il codice OTP è corretto viene rilasciato all'utente un token di autenticazione
+    di secondo livello che potrà utilizzare per accedere alle rotte protette da
+    autenticazione a due fattori.
+
+    La funzione richiede come parametri:
+        - l'id associato all'utente,
+        - il codice OTP inserito dall'utente.
+
+    La funzione restituisce lo stato della richiesta.
+    Se l'autenticazione ha successo viene restituito anche il token.*/
+
+
     async getTokenOTP(userID,insertOTP){
             
-        return await findOne(OTP,{userID: userID},async userOTP => {
+        const result = await findOne(OTP,{userID: userID},async userOTP => {
 
             // Verifca se nel database è presente il codice OTP associato all'utente
 
@@ -163,21 +227,24 @@ class AuthController {
 
             if (insertOTP != userOTP.OTP) throw "Il codice OTP inserito è errato"
 
-
-            // Genera il token di autenticazione multifattore
-
-            const token = jwt.sign({ userID: userID, OTP: insertOTP}, process.env.TOKEN_SECRET);
-
-
-            // Elimina il codice OTP relativo all'utente dal database (ormai non serve più, è temporaneo)
-
-            await OTP.deleteMany({userID: userID})
-
-
-            // Restituisce lo stato della richiesta e il token di autenticazione multi fattore
-
-            return [200, 'Accesso consentito', token]
         })
+
+        if (result[0] != 200) return result
+
+
+        // Genera il token di autenticazione multifattore
+
+        const token = jwt.sign({ userID: userID, OTP: result[1].OTP}, process.env.TOKEN_SECRET);
+
+
+        // Elimina il codice OTP relativo all'utente dal database (ormai non serve più, è temporaneo)
+
+        await OTP.deleteMany({userID: userID})
+
+
+        // Restituisce lo stato della richiesta e il token di autenticazione multi fattore
+
+        return [200, 'Accesso consentito', token]
 
     }
 

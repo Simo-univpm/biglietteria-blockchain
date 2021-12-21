@@ -91,27 +91,28 @@ class TicketController {
 
         // Cerca tutti i biglietti posseduti da un utente nel database
 
-        return find(Ticket,{userID: id},async tickets => {
+        const result = await find(Ticket,{userID: id})
+        if (result[0] != 200) return result
 
-            // Filtra i biglietti escludendo quelli invalidati
+        // Filtra i biglietti escludendo quelli invalidati
 
-            tickets = tickets.filter(ticket => !ticket.isUsed)
-
-
-            // Inserisce i dati dell'evento dentro al biglietto
-
-            tickets = await Promise.all(tickets.map(async ticket => {
-                    
-                const eventResult = await findOne(Event,{eventID: ticket.eventID})
-                if (eventResult[0] != 200) return eventResult
-                return {...ticket.toJSON(), ...eventResult[1]}
-            }))
+        let tickets = result[1].filter(ticket => !ticket.isUsed)
 
 
-            // Restituisce il biglietto
+        // Inserisce i dati dell'evento dentro al biglietto
 
-            return [200,tickets]
-        })
+        tickets = await Promise.all(tickets.map(async ticket => {
+                
+            const eventResult = await findOne(Event,{eventID: ticket.eventID})
+            if (eventResult[0] != 200) return eventResult
+            return {...ticket.toJSON(), ...eventResult[1]}
+        }))
+
+
+        // Restituisce il biglietto
+
+        return [200,tickets]
+        
     }
 
 
@@ -143,18 +144,18 @@ class TicketController {
 
         // Cerca tutti i biglietti invalidati relativi ad un certo evento
 
-        return find(Ticket,{eventID: id},tickets => {
+        const result = await find(Ticket,{eventID: id})
 
 
-            // Filtra i biglietti emessi mantenendo solo quelli inalidati (ingressi)
+        // Filtra i biglietti emessi mantenendo solo quelli inalidati (ingressi)
 
-            tickets = tickets.filter(value => value.isUsed)
+        const tickets = result[1].filter(value => value.isUsed)
 
 
-            // Restituisce i biglietti invalidati
+        // Restituisce i biglietti invalidati
 
-            return [200, tickets]
-        })
+        return [200, tickets]
+        
     }
 
 
@@ -182,24 +183,28 @@ class TicketController {
 
         // Cerca l'evento per cui l'utente vuole acquistare i biglietti nel database
 
-        return findOne(Event,{eventID: eventID},async event => {
+        let link;
+
+        const result = await findOne(Event,{eventID: eventID},async event => {
 
             // Esegue una transazione sullo smart contract per verificare la disponibilità dei biglietti
 
             const transazione = await eseguiTransazione(wallet_cliente, password_cliente, event.Indirizzo_contratto, JSON.parse(event.ContractAbi), "richiestaBiglietti", numeroBiglietti) 
-            if (!transazione) return [500, "I biglietti non sono al momento disponibili"]
+            if (!transazione) throw "I biglietti non sono al momento disponibili"
 
 
             // Invia una richiesta di pagamento a paypal
 
-            const link = await richiestaPagamento(userID,event.eventID,event.Prezzo,numeroBiglietti)
-            if (!link)  return [500, "Richiesta pagamento fallita"]
-
-
-            // Restituisce il link al sito paypal per eseguire il pagamento
-
-            return [200,link]
+            link = await richiestaPagamento(userID,event.eventID,event.Prezzo,numeroBiglietti)
+            if (!link)  throw "Richiesta pagamento fallita"
+            
         })
+
+        if (result[0] != 200) return result
+
+        // Restituisce il link al sito paypal per eseguire il pagamento
+
+        return [200,link]
     }
 
 
@@ -244,11 +249,11 @@ class TicketController {
                     Data_emissione: getCurrentDate(),
                     Orario_emissione: getCurrentTime()
 
-                },ticket => {
+                },async ticket => {
 
                     // Emissione del biglietto
 
-                    return update(Event,{eventID: paymentData.eventID},async event => {
+                    await update(Event,{eventID: paymentData.eventID},async event => {
 
                         // Esegue una transazione sullo smart contract per emettere i biglietti
 
@@ -298,7 +303,7 @@ class TicketController {
 
         // Esegue l'invalidazione del biglietto
 
-        return await update(Ticket,{_id: ticket._id},ticketOnDB => {
+        return update(Ticket,{_id: ticket._id},async ticketOnDB => {
 
 
             // Verifica autenticità e integrità del sigillo fiscale
@@ -308,7 +313,7 @@ class TicketController {
 
             // Cerca l'evento associato al biglietto
 
-            return findOne(Event,{eventID: ticket.eventID},async event => {
+            const result = await findOne(Event,{eventID: ticket.eventID},async event => {
 
                 // Invalidazione del biglietto sulla blockchain
 
@@ -326,6 +331,8 @@ class TicketController {
 
                 ticketOnDB.isUsed = true
             })
+
+            if (result[0] != 200) throw "Invalidazione fallita"
         })
 
     }

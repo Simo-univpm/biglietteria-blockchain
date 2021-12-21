@@ -75,7 +75,7 @@ async function find(model,query,callback){
 
         const result = await model.find(query).then(data => {return !data ? [404, 'ERROR: 404 not found'] : [200, data]})
 
-        if (callback) return callback(result[1])
+        if (callback) callback(result[1])
 
         return result
 
@@ -103,7 +103,7 @@ async function findOne(model,query,callback){
 
         const result = await model.findOne(query).then(data => {return !data ? [404, 'ERROR: 404 not found'] : [200, data.toJSON()]})
 
-        if (callback) return await callback(result[1])
+        if (callback) await callback(result[1])
 
         return result
 
