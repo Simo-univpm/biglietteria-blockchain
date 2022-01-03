@@ -57,8 +57,7 @@ class Login extends HTMLpage{
 
             // Aggiunge il pulsante per accedere all'area riservata
             
-            const login_button = form.addButton("Accedi")   
-            login_button.setProperty("background-color","rgb(24,119,242)") //Colore di sfondo del pulsante per accedere al sito
+            const login_button = form.addButton("Accedi")
             login_button.setProperty("margin-top","2vw") //Distanza del pulsante dall'alto
             login_button.setProperty("margin-bottom","2vw") //Distanza del pulsante dal basso
 
@@ -67,7 +66,7 @@ class Login extends HTMLpage{
 
             const recupera_password = form.addText("Password dimenticata?")   
             recupera_password.setAttribute("onclick","window.location.href='/users/recupera-password'") //Premendo il pulsante si viene reindirizzati alla pagina per recuperare la password
-            recupera_password.setProperty("color","rgb(24,119,242)") //Colore del testo
+            recupera_password.setProperty("color","rgb(138,146,177)") //Colore del testo
             recupera_password.setProperty("font-size","1.06vw") //Dimensione del testo
             recupera_password.setProperty("cursor","pointer") //Modifica il tipo di puntatore quando si passa sopra al pulsante
 
@@ -84,7 +83,7 @@ class Login extends HTMLpage{
 
             // Aggiunge il pulsante per iscriversi al sito
             
-            const signin_button = form.addButton("Crea nuovo account","window.location.href='/users/sign-in'")   
+            const signin_button = form.addButton("Crea un nuovo account","window.location.href='/users/sign-in'")   
             signin_button.setProperty("width","13vw") //Lunghezza del pulsante
             signin_button.setProperty("margin-left","6.5vw") //Distanza del pulsante da sinistra
             signin_button.setProperty("background-color","rgb(66,183,42)")  //Colore del pulsante
