@@ -181,6 +181,12 @@ class TicketController {
         if (metodo_pagamento != "paypal") return [406, "Il metodo di pagamento selezionato non è disponibile"]
 
 
+        // Controlla la validità del numero di biglietti inseriti
+
+        if (numeroBiglietti < 1) return [500, "Inserire un numero di biglietti valido"]
+        if (numeroBiglietti > 4) return [500, "Non è possibile acquistare più di 4 biglietti insieme"]
+
+
         // Cerca l'evento per cui l'utente vuole acquistare i biglietti nel database
 
         let link;

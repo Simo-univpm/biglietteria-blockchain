@@ -7,6 +7,10 @@ const bcrypt = require('bcryptjs');
 
 const sendEmail = require('../functions/mailer').sendEmail
 
+// Funzione per controllare la validità della password inserita
+
+const checkPassword = require('../functions/checkPassword')
+
 // Funzione per generare le password degli wallet
 
 const generateRandomPassword = require('../functions/generateRandomPassword').generateRandomPassword
@@ -162,6 +166,10 @@ class UserController {
 
             const validPass = await bcrypt.compare(userData.Vecchia_password, user.Password);
             if( ! validPass) throw 'La password inserita è errata'
+
+            // Controllo validità password
+
+            if (!checkPassword(userData.Password)) throw "Inserire una password di almeno 8 caratteri con un carattere speciale e una maiuscola"
 
             // PASSWORD HASHING: tramite hash + salt
 

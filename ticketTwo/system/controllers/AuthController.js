@@ -17,6 +17,10 @@ const createWallet = require('../functions/wallet').createWallet
 
 const generateRandomPassword = require('../functions/generateRandomPassword').generateRandomPassword
 
+// Funzione per controllare la validità della password inserita
+
+const checkPassword = require('../functions/checkPassword')
+
 // Funzioni per ottenere data e ora corrente
 
 const { getCurrentDate, getCurrentTime } = require('../functions/timeFunctions');
@@ -113,7 +117,12 @@ class AuthController {
         // CONTROLLO EMAIL IN USO: controlla se la email è già presente nel db
 
         const emailExists = await User.findOne({Mail: registerData.Mail});
-        if(emailExists) return [400, "L'email " + registerData.Mail + " è già stata utilizzata"];
+        if(emailExists) return [400, "L'email " + registerData.Mail + " è già stata utilizzata"]
+
+
+        // Controllo validità password
+
+        if (!checkPassword(registerData.Password)) return [400, "Inserire una password di almeno 8 caratteri con un carattere speciale e una maiuscola"]
     
 
         // PASSWORD HASHING: tramite hash + salt
