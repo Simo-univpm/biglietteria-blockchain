@@ -84,8 +84,8 @@ class Login extends HTMLpage{
             // Aggiunge il pulsante per iscriversi al sito
             
             const signin_button = form.addButton("Crea un nuovo account","window.location.href='/users/sign-in'")   
-            signin_button.setProperty("width","13vw") //Lunghezza del pulsante
-            signin_button.setProperty("margin-left","6.5vw") //Distanza del pulsante da sinistra
+            signin_button.setProperty("width","60%") //Lunghezza del pulsante
+            signin_button.setProperty("margin-left","20%")
             signin_button.setProperty("background-color","rgb(66,183,42)")  //Colore del pulsante
             
         })

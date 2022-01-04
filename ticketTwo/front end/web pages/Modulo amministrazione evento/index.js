@@ -55,8 +55,8 @@ module.exports = {
                 // Pulsanti visualizzati dopo che le vendite dell'evento sono aperte
 
                 else{
-                    evento.addButton("Gestione biglietti","/tickets/biglietti")  //Aggiunge il pulsante per visualizzare i biglietti emessi per l'evento
-                    if (evento.getStato() == 2) evento.addButton("Gestione ingressi","/tickets/ingressi")   //Aggiunge il pulsante per visualizzare gli ingressi all'evento (solo se le vendite sono chiuse)
+                    evento.addButton("Biglietti emessi","/tickets/biglietti")  //Aggiunge il pulsante per visualizzare i biglietti emessi per l'evento
+                    if (evento.getStato() == 2) evento.addButton("Biglietti annullati","/tickets/ingressi")   //Aggiunge il pulsante per visualizzare gli ingressi all'evento (solo se le vendite sono chiuse)
                 }
 
                 evento.addData(["Artisti","Luogo","Data_evento","Posti_disponibili","Orario","eventID","eventCreationDate","eventCreationTime","Prezzo"])  //Specifica i campi dell'evento da mostrare
