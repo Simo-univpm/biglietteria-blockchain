@@ -13,12 +13,12 @@ const transporter = nodemailer.createTransport({
 
 async function sendEmail(oggetto,destinatario,testo){
 
-  /*transporter.sendMail({
+  transporter.sendMail({
     from: process.env.EMAIL,
     to: destinatario,
     subject: oggetto,
     text: testo
-  })*/console.log(testo)
+  })
 
 }
 
