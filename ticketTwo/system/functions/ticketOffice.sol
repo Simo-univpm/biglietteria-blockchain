@@ -42,6 +42,7 @@ contract TicketOffice {
         operatore_biglietteria = msg.sender;
         annullatore = _annullatore;
         biglietteria_automatica = _biglietteria_automatica;
+        
     }
 
 
@@ -57,7 +58,7 @@ contract TicketOffice {
     // ritorna un biglietto tramite id
     function getBiglietto(uint _id) public view returns (uint, bool, address){
 
-        // non si può ritornare lo struct perché solidity fa schifo, quindi ritorno i singoli campi
+        // non si può ritornare lo struct quindi ritorno i singoli campi
         return (bigliettiEmessi[_id].id, bigliettiEmessi[_id].isUsed, bigliettiEmessi[_id].cliente);
 
     }
