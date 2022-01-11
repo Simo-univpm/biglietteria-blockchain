@@ -112,9 +112,9 @@ contract TicketOffice {
         require(evento.venditeAperte == true);
         require(richieste_biglietti[cliente] > 0);
 
-        richieste_biglietti[cliente] -= 1;                   // azzera il numero di biglietti richiesti dal cliente, in quanto la transazione è completata, richiesta di pino = 0
+        richieste_biglietti[cliente] -= 1;                 // emette un biglietto per il cliente che lo richiede.
 
-        creaNuovoBiglietto(idBiglietto, cliente);          // associo un biglietto valido al cliente che lo richiede.
+        creaNuovoBiglietto(idBiglietto, cliente);          // associo un biglietto valido al cliente che lo richiede e lo salva nell'array dei biglietti emessi
 
         emit EmissioneTerminata(cliente,idBiglietto);
         idBiglietto++;
@@ -123,7 +123,6 @@ contract TicketOffice {
 
 
     // Annullatore
-    // da implementare con l'id del biglietto o con l'indirizzo del cliente ???
     function invalidaBiglietti(uint idBigliettoDaAnnullare) public{
 
         require(msg.sender == annullatore);
