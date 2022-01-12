@@ -5,11 +5,14 @@ const OTPSchema = new mongoose.Schema({
 
     userID: {
         type: Number,
+        min: 0,
         required: true,
     },
 
     OTP: {
         type: String,
+        min: 4,
+        max: 4,
         required: true, 
     },
 

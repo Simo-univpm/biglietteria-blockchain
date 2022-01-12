@@ -1,23 +1,26 @@
 const mongoose = require('mongoose');
 const Encryption = require('mongoose-encryption');
 
-// Questo è il formato dell'utente a db
 const accessSchema = new mongoose.Schema({
 
     Mail: {
         type: String,
-        min: 2,
-        max: 128,
+        min: 6,
+        max: 56,
         required: true
     },
     
     Data_accesso: {
         type: String,
+        min: 8,
+        max: 10,
         required: true
     },
 
     Orario_accesso: {
         type: String,
+        min: 5,
+        max: 8,
         required: true
     }
 

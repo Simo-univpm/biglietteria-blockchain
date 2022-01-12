@@ -3,16 +3,19 @@ const AutoIncrement = require('mongoose-sequence')(mongoose);
 const Encryption = require('mongoose-encryption');
 
 
-// Questo è il formato del biglietto a db
 const receiptSchema = new mongoose.Schema({
 
     Codice_ricevuta: {
         type: String,
+        min: 1,
+        max: 128,
         required: true
     },
 
     Metodo_di_pagamento: {
         type: String,
+        min: 1,
+        max: 24,
         required: true
     },
 
@@ -20,21 +23,29 @@ const receiptSchema = new mongoose.Schema({
 
     Via: {
         type: String,
+        min: 1,
+        max: 64,
         required: true
     },
 
     Città: {
         type: String,
+        min: 1,
+        max: 64,
         required: true
     },
 
     Stato: {
         type: String,
+        min: 1,
+        max: 64,
         required: true
     },
 
     CAP: {
         type: String,
+        min: 4,
+        max: 16,
         required: true
     },
 
@@ -43,16 +54,22 @@ const receiptSchema = new mongoose.Schema({
 
     Email: {
         type: String,
+        min: 6,
+        max: 64,
         required: true
     },
 
     Nome: {
         type: String,
+        min: 1,
+        max: 24,
         required: true
     },
 
     Cognome: {
         type: String,
+        min: 1,
+        max: 24,
         required: true
     },
 
@@ -60,26 +77,34 @@ const receiptSchema = new mongoose.Schema({
 
     eventID: {
         type: Number,
+        min: 0,
         required: true
     },
 
     userID: {
         type: Number,
+        min: 0,
         required: true
     },
 
     Prezzo: {
         type: Number,
+        min: 1,
+        max: 1000,
         required: true
     },
 
     Valuta: {
         type: String,
+        min: 1,
+        max: 24,
         required: true
     },
 
     Numero_biglietti: {
         type: Number,
+        min: 1,
+        max: 4,
         required: true
     },
 
@@ -87,10 +112,14 @@ const receiptSchema = new mongoose.Schema({
 
     Data_emissione: {
         type: String,
+        min: 8,
+        max: 10
     },
 
     Orario_emissione: {
         type: String,
+        min: 5,
+        max: 5
     }
 
 });

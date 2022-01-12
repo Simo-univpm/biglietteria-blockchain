@@ -15,17 +15,20 @@ const ticketSchema = new mongoose.Schema({
     // id dell'utete che ha comprato il biglietto
     userID: {
         type: Number,
+        min: 0,
         required: true,
     },
 
     // id dell'evento al quale il biglietto si riferisce
     eventID: {
         type: Number,
+        min: 0,
         required: true, 
     },
 
     Codice_identificativo: {
         type: Number,
+        min: 0,
         required: true, 
     },
 
@@ -41,18 +44,26 @@ const ticketSchema = new mongoose.Schema({
        
     Data_emissione: {
         type: String,
+        min: 8,
+        max: 10
     },
 
     Orario_emissione: {
         type: String,
+        min: 5,
+        max: 5
     },
 
     Data_invalidazione: {
         type: String,
+        min: 8,
+        max: 10
     },
 
     Orario_invalidazione: {
         type: String,
+        min: 5,
+        max: 5
     }
 
 });

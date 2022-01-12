@@ -7,40 +7,39 @@ const userSchema = new mongoose.Schema({
 
     Privilegi: {
         type: String,
+        enum : ['Cliente','Organizzatore eventi', 'Staff biglietteria', 'Annullatore'],
         default: "Cliente",
         required: true
     },
 
     organizzatore: {
         type: String,
+        min: 1,
+        max: 24,
         required: false,
     },
 
-    // user -> form
     Nome: {
         type: String,
-        min: 2,
+        min: 1,
         max: 24,
         required: true
     },
 
-     // tel -> form
     Telefono: {
         type: String,
-        min: 2,
-        max: 24,
+        min: 10,
+        max: 15,
         required: true
     },
 
-    // user -> form
     Cognome: {
         type: String,
-        min: 2,
+        min: 1,
         max: 24,
         required: true
     },
 
-    // user -> form
     Data_di_nascita: {
         type: String,
         min: 8,
@@ -48,19 +47,18 @@ const userSchema = new mongoose.Schema({
         required: true
     },
 
-    // user -> form
     Genere: {
         type: String,
-        min: 1,
-        max: 24,
+        enum : ['Donna','Uomo', 'Altro'],
+        min: 4,
+        max: 5,
         required: true
     },
 
-    // user -> form
     Mail: {
         type: String,
-        min: 2,
-        max: 128,
+        min: 6,
+        max: 64,
         required: true
     },
 
@@ -68,33 +66,28 @@ const userSchema = new mongoose.Schema({
     Password: {
         type: String,
         min: 8,
-        max: 512,
+        max: 64,
         required: true
     },
-
-    Organizzatore: {
-        type: String,
-        min: 2,
-        max: 24,
-        required: false
-    },
-
+    
     // user -> form
     Indirizzo_wallet: {
         type: String,
-        min: 8,
-        max: 512,
+        min: 1,
+        max: 128,
         required: true 
     },
     
-    // auto
     registerDate: {
         type: String,
+        min: 8,
+        max: 10
     },
 
-    // auto
     registerTime: {
         type: String,
+        min: 5,
+        max: 5  
     }
 
 });

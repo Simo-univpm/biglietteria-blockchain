@@ -9,13 +9,15 @@ const eventSchema = new mongoose.Schema({
     // cinema, teatro e quant'altro
     type: {
         type: String,
-        min: 1,
-        max: 24,
+        enum : ['Cinema','Teatro', 'Musei', 'Partite', 'Concerti'],
+        min: 5,
+        max: 8,
         required: true
     },
 
     stato: {
         type: Number,
+        enum : [0, 1, 2],
         default: 0,
         required: true
     },
@@ -23,8 +25,6 @@ const eventSchema = new mongoose.Schema({
     // percorso del file immagine della locandina
     Icona_evento: {
         type: String,
-        min: 1,
-        max: 24,
         required: true
     },
 
@@ -52,14 +52,14 @@ const eventSchema = new mongoose.Schema({
     Posti_totali: {
         type: Number,
         min: 1,
-        max: 100000,
+        max: 114000,
         required: true
     },
 
     Posti_disponibili: {
         type: Number,
         min: 1,
-        max: 100000,
+        max: 114000,
         required: true
     },
 
@@ -73,28 +73,34 @@ const eventSchema = new mongoose.Schema({
     Organizzatore: {
         type: String,
         min: 1,
-        max: 128,
+        max: 24,
         required: true
     },
 
     Artisti: {
         type: String,
+        min: 1,
+        max: 128,
         required: true
     },
 
     Prezzo: {
         type: Number,
         min: 1,
-        max: 50000,
+        max: 1000,
         required: true
     },
    
     eventCreationDate: {
         type: String,
+        min: 8,
+        max: 10,
     },
 
     eventCreationTime: {
         type: String,
+        min: 5,
+        max: 5  
     },
 
     ContractAbi: {
@@ -104,16 +110,22 @@ const eventSchema = new mongoose.Schema({
 
     Indirizzo_contratto: {
         type: String,
+        min: 1,
+        max: 128,
         required: false
     },
 
     WalletAutomaticTicketOffice: {
         type: String,
+        min: 1,
+        max: 128,
         required: false
     },
 
     PasswordAutomaticTicketOffice: {
         type: String,
+        min: 1,
+        max: 128,
         required: false
     }
 
