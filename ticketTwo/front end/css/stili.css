@@ -1,0 +1,50 @@
+
+/*Il file css contiene alcuni stili di base che vengono usati nel sito web*/
+
+/*Imposta il colore del tema del sito web. Cambiando il colore qua lo si cambia
+in tutti i widget che lo utilizzano. */
+
+
+:root{
+    --tema: #3b3f6d;
+}
+
+
+
+/*Imposta l'hover sui tag di tipo button label e a.
+
+I pulsanti, le etichette e i link cambieranno colore (diventano più scuri)
+quando si passa sopra col mouse. */
+
+
+button:hover,label:hover,a:hover{
+   filter: brightness(0.9); /*Modifica il colore di sfondo quando si passa sopra a un pulsante o a un link*/
+}
+
+
+
+/*Aggiunge un segnaposto (placeholder) ai tag di tipo input che di default non lo
+possiedono (data, orario, file). */
+
+
+input:before{
+    color: rgba(169,169,169); /*Colore del testo dei campi di tipo data*/
+    content: attr(placeholder); /*Serve per inserire il segnaposto nei campi di tipo data*/
+    margin-right: 40px; /*Distanza tra il segnaposto del campo e il valore*/
+}
+
+
+
+/*Modifica l'aspetto dei campi input di tipo file (usati per l'upload di immagini). */
+
+
+input[type="file"] {
+    background-color: white;
+    padding-top: 0.65vw; /*Spazio dall'alto*/
+    cursor: pointer; /*Modifica il tipo di puntatore quando si passa sopra al pulsante*/
+    color: transparent; /*Nasconde il nome del file scelto*/
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden; /*Nasconde il pulsante per scegliere il file*/
+}   
