@@ -56,21 +56,24 @@ clienteTicketTwo@gmail.com
 
 -----------------------------------------
 
-EMAIL:    biglietteriaTicketTwo@gmail.com
-password email: progettoSwCs
-password ticketTwo: progettoSwCs!
+biglietteriaTicketTwo@gmail.com
+
+**password email:** progettoSwCs
+
+**password ticketTwo:** progettoSwCs!
 
 -----------------------------------------
 
-EMAIL:    annullatoreTicketTwo@gmail.com
-password email: progettoSwCs
-password ticketTwo: progettoSwCs!
+annullatoreTicketTwo@gmail.com
+
+**password email:** progettoSwCs
+
+**password ticketTwo:** progettoSwCs!
 
 -----------------------------------------
 
-EMAIL:    managerTicketTwo@gmail.com
-password email: progettoSwCs
-password ticketTwo: progettoSwCs!
+managerTicketTwo@gmail.com
 
+**password email:** progettoSwCs
 
-
+**password ticketTwo:** progettoSwCs!
