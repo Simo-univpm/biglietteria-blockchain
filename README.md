@@ -59,7 +59,7 @@ Per risolvere il problema è sufficiente accedere all'area riservata del sito e 
 - **password email:** progettoSwCs
 
 - **password ticketTwo:** progettoSwCs!
-- 
+
 ## Cliente
 
 - clienteTicketTwo@gmail.com
