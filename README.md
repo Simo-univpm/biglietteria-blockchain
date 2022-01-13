@@ -48,9 +48,7 @@ Per risolvere il problema è sufficiente accedere all'area riservata del sito e 
 
 -----------------------------------------
 
-clienteTicketTwo@gmail.com
-password email: progettoSwCs
-password ticketTwo: progettoSwCs!
+clienteTicketTwo@gmail.com      **password email:** progettoSwCs      **password ticketTwo:** progettoSwCs!
 
 -----------------------------------------
 
