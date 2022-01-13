@@ -52,6 +52,14 @@ Gli wallet vengono memorizzati sulla blockchain a cui è connesso il sito. Per l
 
 Per risolvere il problema è sufficiente accedere all'area riservata del sito e modificare l'indirizzo del wallet associato all'account, sostituendolo con uno presente sulla blockchain che si sta utilizzando.
 
+## Annullatore biglietti
+
+- annullatoreTicketTwo@gmail.com
+
+- **password email:** progettoSwCs
+
+- **password ticketTwo:** progettoSwCs!
+- 
 ## Cliente
 
 - clienteTicketTwo@gmail.com
@@ -60,25 +68,17 @@ Per risolvere il problema è sufficiente accedere all'area riservata del sito e 
 
 - **password ticketTwo:** progettoSwCs!
 
-## Staff biglietteria
-
-- biglietteriaTicketTwo@gmail.com
-
-- **password email:** progettoSwCs
-
-- **password ticketTwo:** progettoSwCs!
-
-## Annullatore biglietti
-
-- annullatoreTicketTwo@gmail.com
-
-- **password email:** progettoSwCs
-
-- **password ticketTwo:** progettoSwCs!
-
 ## Organizzatore eventi
 
 - managerTicketTwo@gmail.com
+
+- **password email:** progettoSwCs
+
+- **password ticketTwo:** progettoSwCs!
+
+## Staff biglietteria
+
+- biglietteriaTicketTwo@gmail.com
 
 - **password email:** progettoSwCs
 
