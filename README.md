@@ -48,7 +48,7 @@ Per risolvere il problema è sufficiente accedere all'area riservata del sito e 
 
 -----------------------------------------
 
-**Cliente**
+#Cliente
 
 clienteTicketTwo@gmail.com
 
