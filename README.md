@@ -28,15 +28,16 @@ Quando durante la fase di acquisto dei biglietti si viene reindirizzati al sito 
 
 Per installare il server dell'applicazione web è necessario scaricare il repository da github, aprire un terminale all'interno della cartella del progetto e lanciare il comando:
 ```
-npm i //Installa i pacchetti node JS necessari per il funzionamento dell'app
+npm i
 ```
+Il precedente comando provvede ad installare tutti i pacchetti node JS necessari per il funzionamento dell'app.
 
 Per evitare problemi si consiglia di utilizzare l'ultima versione di Node.js.
 
 Per avviare il server bisogna lanciare il comando:
 
 ```
-npm start //Avvia il server dell'applicazione web
+npm start
 ```
 Di default il server si mette in ascolto sulla porta 8080.
 
