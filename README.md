@@ -37,3 +37,33 @@ npm start //Avvia il server dell'applicazione web
 Di default il server si mette in ascolto sulla porta 8080.
 
 Per maggiori informazioni seguire il manuale di installazione, configurazione e utilizzo presente nella relazione del progetto.
+
+Per testare il sito web sono stati creati quattro account, uno per ogni diversa tipologia di attore:
+
+EMAIL:    clienteTicketTwo@gmail.com
+PASSWORD_MAIL: progettoSwCs
+PASSWORD_TICKETTWO: progettoSwCs!
+
+-----------------------------------------
+
+EMAIL:    biglietteriaTicketTwo@gmail.com
+PASSWORD_MAIL: progettoSwCs
+PASSWORD_TICKETTWO: progettoSwCs!
+
+-----------------------------------------
+
+EMAIL:    annullatoreTicketTwo@gmail.com
+PASSWORD_MAIL: progettoSwCs
+PASSWORD_TICKETTWO: progettoSwCs!
+
+-----------------------------------------
+
+EMAIL:    managerTicketTwo@gmail.com
+PASSWORD_MAIL: progettoSwCs
+PASSWORD_TICKETTWO: progettoSwCs!
+
+-----------------------------------------
+
+A ciascuno di questi account è associato un wallet Quorum, che permette agli utenti di interagire con lo smart contract che gestisce i biglietti. 
+
+Gli wallet vengono memorizzati sulla blockchain a cui è connesso il sito. Per la fase di testing è stata utilizzata una blockchain locale, quindi eseguendo il server su una macchina diversa gli wallet non verranno trovati, rendendo impossibile l'interazione con lo smart contract. Per risolvere il problema è sufficiente accedere all'area riservata del sito e modificare l'indirizzo del wallet associato all'account.
