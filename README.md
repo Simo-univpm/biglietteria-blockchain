@@ -44,7 +44,9 @@ A ciascuno di questi account è associato un wallet Quorum, che permette agli ut
 
 Gli wallet vengono memorizzati sulla blockchain a cui è connesso il sito. Per la fase di testing è stata utilizzata una blockchain locale, quindi eseguendo il server su una macchina diversa gli wallet non verranno trovati, rendendo impossibile l'interazione con lo smart contract.
 
-Per risolvere il problema è sufficiente accedere all'area riservata del sito e modificare l'indirizzo del wallet associato all'account.
+Per risolvere il problema è sufficiente accedere all'area riservata del sito e modificare l'indirizzo del wallet associato all'account, sostituendolo con uno presente sulla blockchain che si sta utilizzando.
+
+-----------------------------------------
 
 clienteTicketTwo@gmail.com
 password email: progettoSwCs
@@ -68,6 +70,5 @@ EMAIL:    managerTicketTwo@gmail.com
 password email: progettoSwCs
 password ticketTwo: progettoSwCs!
 
------------------------------------------
 
 
