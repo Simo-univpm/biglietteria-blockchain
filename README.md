@@ -54,32 +54,32 @@ Per risolvere il problema è sufficiente accedere all'area riservata del sito e 
 
 ## Cliente
 
-clienteTicketTwo@gmail.com
+- clienteTicketTwo@gmail.com
 
-**password email:** progettoSwCs
+- **password email:** progettoSwCs
 
-**password ticketTwo:** progettoSwCs!
+- **password ticketTwo:** progettoSwCs!
 
 ## Staff biglietteria
 
-biglietteriaTicketTwo@gmail.com
+- biglietteriaTicketTwo@gmail.com
 
-**password email:** progettoSwCs
+- **password email:** progettoSwCs
 
-**password ticketTwo:** progettoSwCs!
+- **password ticketTwo:** progettoSwCs!
 
 ## Annullatore biglietti
 
-annullatoreTicketTwo@gmail.com
+- annullatoreTicketTwo@gmail.com
 
-**password email:** progettoSwCs
+- **password email:** progettoSwCs
 
-**password ticketTwo:** progettoSwCs!
+- **password ticketTwo:** progettoSwCs!
 
 ## Organizzatore eventi
 
-managerTicketTwo@gmail.com
+- managerTicketTwo@gmail.com
 
-**password email:** progettoSwCs
+- **password email:** progettoSwCs
 
-**password ticketTwo:** progettoSwCs!
+- **password ticketTwo:** progettoSwCs!
