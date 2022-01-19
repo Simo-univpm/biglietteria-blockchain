@@ -84,3 +84,9 @@ Per risolvere il problema è sufficiente accedere all'area riservata del sito e 
 - **password email:** progettoSwCs
 
 - **password ticketTwo:** progettoSwCs!
+
+#Demo
+
+Al link sottostante è disponibile un video tutorial che illustra le principali funzionalità del sito web:
+
+https://univpm-my.sharepoint.com/:v:/g/personal/s1102500_studenti_univpm_it/Een_1ZYEicNLiiLdijaDMWUBsWLKun5fTWtLA-98ocKeQg
