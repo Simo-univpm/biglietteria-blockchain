@@ -85,7 +85,7 @@ Per risolvere il problema è sufficiente accedere all'area riservata del sito e 
 
 - **password ticketTwo:** progettoSwCs!
 
-#Demo
+# Demo
 
 Al link sottostante è disponibile un video tutorial che illustra le principali funzionalità del sito web:
 
